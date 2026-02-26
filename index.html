@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>painel de tabuadas</title>
+    <style>
+        body{
+            font-family: arial, sans-serif;
+            border-color: #f4f4f4;
+            text-align: center;
+            margin: 20px;
+        }
+
+        button{
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #99004c;
+            color: white;
+            border-radius: 5x;
+            margin-bottom: 20px;
+        }
+
+        button:hover{
+            background-color: #ff4c73;
+        }
+
+        #resultado{
+            display: flex;
+            flex-wrap: wrap;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .card{
+            background-color: #ff66b2;
+            padding: 15px;
+            width: 150px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .card h3{ 
+            margin-top: 0;
+            text-align: center;
+            color: #99004c;
+        }
+    </style>
+</head>
+<body>
+    <h1>painel de tabuadas</h1>
+
+    <button onclick="gerartabuadas()">gerar tabuadas</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        function gerartabuadas() {
+            let painel = document.getElementById("resultado");
+            let conteudo = ""; 
+
+            for (let i = 1; i <= 10; i++){
+                conteudo += `<div class="card">`;
+                conteudo += `<h3>tabuada do ${i}</h3>`;
+
+                for (let j = 1; j <= 10; j++) {
+                    let resultado = i * j;
+                    conteudo += `${i} x ${j} = ${resultado}<br>`;
+                }
+
+                conteudo += `</div>`;
+            }
+
+            painel.innerHTML = conteudo;
+        }
+    </script>
+</body>
+</html>
